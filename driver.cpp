@@ -17,7 +17,7 @@ bool sameFirstLast(vector<int> nums);
 int * makePi();
 bool commonEnd(vector<int> a, vector<int> b);
 int sum3(int ary[]);
-
+int* rotateLeft3(int nums[]);
 int main()
 {
  /*   vector<int> a;
@@ -170,6 +170,7 @@ int main()
    b.clear();
    */
    
+   /*
    int ary[] = {1, 2, 3};
    assert(sum3(ary) == 6);
    
@@ -193,6 +194,65 @@ int main()
    ary[2] = 0;
    assert(sum3(ary) == 0);
    
+   */
+   
+   int numbers[] = {1, 2, 3};
+   int* otherPtr = rotateLeft3(numbers);
+   assert( *(otherPtr) == (2) );
+   assert( *(otherPtr + 1 ) == (3) );
+   assert( *(otherPtr + 2) == (1)  );
+   
+   
+   numbers[0] = 5;
+   numbers[1] = 11;
+   numbers[2] = 9;
+   
+   
+   delete[] otherPtr;
+   otherPtr = rotateLeft3(numbers);
+   assert( *(otherPtr) == (11) );
+   assert( *(otherPtr + 1 ) == (9) );
+   assert( *(otherPtr + 2) == (5)  );
+   
+   
+    
+   numbers[0] = 7;
+   numbers[1] = 0;
+   numbers[2] = 0;
+   
+   
+   delete[] otherPtr;
+   otherPtr = rotateLeft3(numbers);
+   assert( *(otherPtr) == (0) );
+   assert( *(otherPtr + 1 ) == (0) );
+   assert( *(otherPtr + 2) == (7)  );
+   
+   
+    
+   numbers[0] = 4;
+   numbers[1] = 0;
+   numbers[2] = -3;
+   
+   
+   delete[] otherPtr;
+   otherPtr = rotateLeft3(numbers);
+   assert( *(otherPtr) == (0) );
+   assert( *(otherPtr + 1 ) == (-3) );
+   assert( *(otherPtr + 2) == (4)  );
+   
+   
+   
+    
+   numbers[0] = 9;
+   numbers[1] = 9;
+   numbers[2] = 9;
+   
+   
+   delete[] otherPtr;
+   otherPtr = rotateLeft3(numbers);
+   assert( *(otherPtr) == (9) );
+   assert( *(otherPtr + 1 ) == (9) );
+   assert( *(otherPtr + 2) == (9)  );
    
    return 0;
 }
@@ -247,4 +307,27 @@ int sum3(int ary[])
         sum += ary[ix];
     }
     return sum;
+}
+
+int* rotateLeft3(int nums[])
+{
+    int* aryPtr = new int[3];
+    
+    for(int i = 0; i < 3; i++)
+    {
+        int temp;
+        
+        switch (i)
+        {
+          case 0: *aryPtr = nums[1];
+          break;
+          
+          case 1: *(aryPtr+1) = nums[2];
+          break;
+          
+          case 2: *(aryPtr+2) = nums[0];
+          break; 
+        }
+    }
+    return aryPtr;
 }
