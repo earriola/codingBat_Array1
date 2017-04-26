@@ -6,6 +6,7 @@ using namespace std;
 
 bool firstLast6(vector<int> nums);
 bool sameFirstLast(vector<int> nums);
+int * makePi();
 
 int main()
 {
@@ -51,7 +52,7 @@ int main()
     a.push_back(6);
     assert(firstLast6(a));
 */    
-    
+  /*  
     vector<int> a;
     a.push_back(1);
     a.push_back(2);
@@ -88,7 +89,13 @@ int main()
     a.push_back(3);
     assert(!sameFirstLast(a));
     
-    a.clear();
+    a.clear();*/
+   
+   int * pi = makePi();
+   
+   assert(pi[0] == 3);
+   assert(pi[1] == 1);
+   assert(pi[2] == 4);
    
     
     return 0;
@@ -115,3 +122,13 @@ bool sameFirstLast(vector<int> nums)
     return false;
 }
 
+int * makePi()
+{
+    int * piPtr = new int[3];
+    
+    *piPtr = 3;
+    *(piPtr + 1) = 1;
+    *(piPtr + 2) = 4;
+    
+    return piPtr;
+}
