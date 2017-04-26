@@ -16,6 +16,7 @@ bool firstLast6(vector<int> nums);
 bool sameFirstLast(vector<int> nums);
 int * makePi();
 bool commonEnd(vector<int> a, vector<int> b);
+int sum3(int ary[]);
 
 int main()
 {
@@ -107,6 +108,7 @@ int main()
    assert(pi[2] == 4);
    */
    
+   /*
    vector<int> a;
    a.push_back(1);
    a.push_back(2);
@@ -166,7 +168,32 @@ int main()
    
    a.clear(); 
    b.clear();
-    
+   */
+   
+   int ary[] = {1, 2, 3};
+   assert(sum3(ary) == 6);
+   
+   ary[0] = 5;
+   ary[1] = 11;
+   ary[2] = 2;
+   assert(sum3(ary) == 18);
+   
+   ary[0] = 7;
+   ary[1] = 0;
+   ary[2] = 0;
+   assert(sum3(ary) == 7);
+   
+   ary[0] = 1;
+   ary[1] = 4;
+   ary[2] = 5;
+   assert(sum3(ary) == 10);
+   
+   ary[0] = -1;
+   ary[1] = 1;
+   ary[2] = 0;
+   assert(sum3(ary) == 0);
+   
+   
    return 0;
 }
 
@@ -209,4 +236,15 @@ bool commonEnd(vector<int> a, vector<int> b)
         return true;
     }
     return false;
+}
+
+int sum3(int ary[])
+{
+    int sum = 0;
+    
+    for (int ix = 0; ix < 3; ix++)
+    {
+        sum += ary[ix];
+    }
+    return sum;
 }
