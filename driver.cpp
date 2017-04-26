@@ -5,10 +5,11 @@
 using namespace std;
 
 bool firstLast6(vector<int> nums);
+bool sameFirstLast(vector<int> nums);
 
 int main()
 {
-    vector<int> a;
+ /*   vector<int> a;
     a.push_back(1);
     a.push_back(2);
     a.push_back(6);
@@ -49,8 +50,46 @@ int main()
     a.push_back(5);
     a.push_back(6);
     assert(firstLast6(a));
+*/    
     
+    vector<int> a;
+    a.push_back(1);
+    a.push_back(2);
+    a.push_back(3);
+    assert(!sameFirstLast(a));
     
+    a.clear();
+   
+    a.push_back(1);
+    a.push_back(2);
+    a.push_back(3);
+    a.push_back(1);
+    assert(sameFirstLast(a));
+    
+    a.clear();
+   
+    
+    a.push_back(1);
+    a.push_back(2);
+    a.push_back(1);
+    assert(sameFirstLast(a));
+    
+    a.clear();
+   
+    a.push_back(3);
+    a.push_back(2);
+    a.push_back(3);
+    assert(sameFirstLast(a));
+    
+    a.clear();
+   
+    a.push_back(1);
+    a.push_back(1);
+    a.push_back(3);
+    assert(!sameFirstLast(a));
+    
+    a.clear();
+   
     
     return 0;
 }
@@ -66,3 +105,13 @@ bool firstLast6(vector<int> nums)
         return false;
     }
 }
+
+bool sameFirstLast(vector<int> nums)
+{
+    if(nums[0] == nums[nums.size() - 1] )
+    {
+        return true;
+    }
+    return false;
+}
+
